@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.28)  24 JUN 2023 15:14
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.28)  24 JUN 2023 18:12
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -982,15 +982,6 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: Hyperref support is turned off
 (caption)             because hyperref has stopped early.
-) (c:/texlive/2022/texmf-dist/tex/latex/tikzmark/tikzlibrarytikzmark.code.tex
-File: tikzlibrarytikzmark.code.tex 2022/08/24 v1.15 TikZ library for marking positions in a document
- (c:/texlive/2022/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
-Package: l3keys2e 2023-02-02 LaTeX2e option processing using LaTeX3 keys
-)
-\l__sn_x_dim=\dimen365
-\l__sn_y_dim=\dimen366
-\l__sn_xa_dim=\dimen367
-\l__sn_ya_dim=\dimen368
 )
 runsystem(for ^%i in (pygmentize.exe pygmentize.bat pygmentize.cmd) do set > DMC.aex <nul: /p x=^%~$PATH:i>> DMC.aex)...executed.
 
@@ -1003,36 +994,36 @@ Package csquotes Info: Redefining alias 'default' -> 'english'.
  (out/DMC.aux)
 \openout1 = `DMC.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 45.
-LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 45.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 43.
  (c:/texlive/2022/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 45.
-LaTeX Font Info:    ... okay on input line 45.
-LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 45.
-LaTeX Font Info:    Trying to load font information for LGR+cmr on input line 45.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for LGR/cmr/m/n on input line 43.
+LaTeX Font Info:    Trying to load font information for LGR+cmr on input line 43.
  (c:/texlive/2022/texmf-dist/tex/latex/cbfonts-fd/lgrcmr.fd
 File: lgrcmr.fd 2017/07/29 v1.2 Greek European Computer Regular
 )
-LaTeX Font Info:    ... okay on input line 45.
+LaTeX Font Info:    ... okay on input line 43.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -1068,53 +1059,53 @@ LaTeX Font Info:    ... okay on input line 45.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 45.
+Package hyperref Info: Link coloring OFF on input line 43.
 (out/DMC.out) (out/DMC.out)
 \@outlinefile=\write7
 \openout7 = `DMC.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 45.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 43.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 45.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/b/n on input line 43.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 45.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 45.
+(Font)                  OT1/cmss/m/n --> TU/lmr/m/n on input line 43.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/FiraSansLight(0)/b/n on input line 45.
+(Font)                  OT1/cmr/bx/n --> TU/FiraSansLight(0)/b/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/FiraSansLight(0)/b/n on input line 45.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 45.
+(Font)                  OT1/cmr/bx/n --> TU/FiraSansLight(0)/b/n on input line 43.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/FiraSansLight(0)/m/n on input line 45.
+(Font)                  OT1/cmss/m/n --> TU/FiraSansLight(0)/m/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/FiraSansLight(0)/m/n on input line 45.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 45.
+(Font)                  OT1/cmss/bx/n --> TU/FiraSansLight(0)/m/n on input line 43.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/FiraSansLight(0)/m/it on input line 45.
+(Font)                  OT1/cmr/m/it --> TU/FiraSansLight(0)/m/it on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/FiraSansLight(0)/m/it on input line 45.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 45.
+(Font)                  OT1/cmr/bx/it --> TU/FiraSansLight(0)/m/it on input line 43.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/FiraMono(0)/m/n on input line 45.
+(Font)                  OT1/cmtt/m/n --> TU/FiraMono(0)/m/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/FiraMono(0)/m/n on input line 45.
+(Font)                  OT1/cmtt/m/n --> TU/FiraMono(0)/m/n on input line 43.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  TU/FiraSansLight(0)/m/n --> TU/FiraSansLight(0)/b/n on input line 45.
+(Font)                  TU/FiraSansLight(0)/m/n --> TU/FiraSansLight(0)/b/n on input line 43.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  TU/FiraSansLight(0)/m/it --> TU/FiraSansLight(0)/b/it on input line 45.
+(Font)                  TU/FiraSansLight(0)/m/it --> TU/FiraSansLight(0)/b/it on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/b/n --> TU/lmr/b/n on input line 45.
+(Font)                  OT1/cmss/b/n --> TU/lmr/b/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  TU/FiraSansLight(0)/b/n --> TU/FiraSansLight(0)/b/n on input line 45.
+(Font)                  TU/FiraSansLight(0)/b/n --> TU/FiraSansLight(0)/b/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  TU/FiraSansLight(0)/m/n --> TU/FiraSansLight(0)/b/n on input line 45.
+(Font)                  TU/FiraSansLight(0)/m/n --> TU/FiraSansLight(0)/b/n on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  TU/FiraSansLight(0)/m/it --> TU/FiraSansLight(0)/b/it on input line 45.
+(Font)                  TU/FiraSansLight(0)/m/it --> TU/FiraSansLight(0)/b/it on input line 43.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  TU/FiraMono(0)/m/n --> TU/FiraMono(0)/b/n on input line 45.
+(Font)                  TU/FiraMono(0)/m/n --> TU/FiraMono(0)/b/n on input line 43.
  (c:/texlive/2022/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (c:/texlive/2022/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -1128,11 +1119,11 @@ Dictionary: translator-numbers-dictionary, Language: English
 ) (c:/texlive/2022/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \dots on input line 45.
+LaTeX Info: Redefining \dots on input line 43.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
  (out/DMC.nav)
-Overfull \vbox (13.79993pt too high) detected at line 46
+Overfull \vbox (13.79993pt too high) detected at line 44
  []
 
 [1
@@ -1140,11 +1131,11 @@ Overfull \vbox (13.79993pt too high) detected at line 46
 ] (out/DMC.toc) [2
 
 ]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 51.
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 51.
  (c:/texlive/2022/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [3
@@ -1163,10 +1154,10 @@ File: images/area_method_visualization.png Graphic file (type bmp)
 \openout5 = `DMC.pyg'.
 
  (./out/_minted-DMC/08FF3FD71AA4D9D206AAF13382E6A1A791F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
-File: images/area_method_convergence.png Graphic file (type bmp)
-<images/area_method_convergence.png>
+File: images/area_method_convergence2.png Graphic file (type bmp)
+<images/area_method_convergence2.png>
 
-Overfull \vbox (19.54875pt too high) detected at line 121
+Overfull \vbox (19.54875pt too high) detected at line 119
  []
 
 [6
@@ -1180,10 +1171,10 @@ Overfull \vbox (19.54875pt too high) detected at line 121
  (./out/_minted-DMC/107A2BE4C31D0D1EB60B6F428996205391F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex) [7
 
 ]
-File: images/area_method_histogram.png Graphic file (type bmp)
-<images/area_method_histogram.png>
+File: images/area_method_histogram2.png Graphic file (type bmp)
+<images/area_method_histogram2.png>
 
-Overfull \vbox (14.21301pt too high) detected at line 165
+Overfull \vbox (14.21301pt too high) detected at line 163
  []
 
 [8
@@ -1192,7 +1183,7 @@ Overfull \vbox (14.21301pt too high) detected at line 165
 \openout5 = `DMC.pyg'.
 
  (./out/_minted-DMC/26A5058E807F9A367BB580E41C67DC4F91F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
-Overfull \vbox (23.54129pt too high) detected at line 200
+Overfull \vbox (23.54129pt too high) detected at line 198
  []
 
 [9
@@ -1201,10 +1192,10 @@ Overfull \vbox (23.54129pt too high) detected at line 200
 \openout5 = `DMC.pyg'.
 
  (./out/_minted-DMC/D9B315136E8760A87B95722774EF7E5391F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
-File: images/mc_integration_method_convergence.png Graphic file (type bmp)
-<images/mc_integration_method_convergence.png>
+File: images/mc_integration_method_convergence2.png Graphic file (type bmp)
+<images/mc_integration_method_convergence2.png>
 
-Overfull \vbox (19.54875pt too high) detected at line 217
+Overfull \vbox (19.54875pt too high) detected at line 215
  []
 
 [10
@@ -1218,10 +1209,10 @@ Overfull \vbox (19.54875pt too high) detected at line 217
  (./out/_minted-DMC/946CB5CCA274A4D86593538143F748B391F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex) [11
 
 ]
-File: images/mc_integration_method_histogram.png Graphic file (type bmp)
-<images/mc_integration_method_histogram.png>
+File: images/mc_integration_method_histogram2.png Graphic file (type bmp)
+<images/mc_integration_method_histogram2.png>
 
-Overfull \vbox (14.21301pt too high) detected at line 259
+Overfull \vbox (14.21301pt too high) detected at line 257
  []
 
 [12
@@ -1234,7 +1225,7 @@ Overfull \vbox (14.21301pt too high) detected at line 259
 \openout5 = `DMC.pyg'.
 
  (./out/_minted-DMC/3FFDF394F6C652B86400EBEE8D61E6E291F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
-Overfull \vbox (5.91048pt too high) detected at line 316
+Overfull \vbox (5.91048pt too high) detected at line 314
  []
 
 [15
@@ -1243,8 +1234,8 @@ Overfull \vbox (5.91048pt too high) detected at line 316
 \openout5 = `DMC.pyg'.
 
  (./out/_minted-DMC/0576C4695D4EB26D9FC2F34AD9B6FA3391F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
-File: images/cdf_inversion.png Graphic file (type bmp)
-<images/cdf_inversion.png>
+File: images/cdf_inversion2.png Graphic file (type bmp)
+<images/cdf_inversion2.png>
  [16
 
 ] [17
@@ -1255,7 +1246,7 @@ File: images/cdf_inversion.png Graphic file (type bmp)
 \openout5 = `DMC.pyg'.
 
  (./out/_minted-DMC/8EDA72165A2051E3465ACDCB7257800891F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
-Overfull \vbox (5.91048pt too high) detected at line 392
+Overfull \vbox (5.91048pt too high) detected at line 390
  []
 
 [19
@@ -1283,7 +1274,81 @@ File: images/feynman2.png Graphic file (type bmp)
 
 ] [25
 
-] (out/DMC.bbl) [26
+]
+\openout5 = `DMC.pyg'.
+
+ (./out/_minted-DMC/47C0A7110C6AC7A29BC144E2B7C7BC1491F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex) [26
+
+]
+\openout5 = `DMC.pyg'.
+
+ (./out/_minted-DMC/DCF683517BC1D65C4B774AF62EBA485A91F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex) [27
+
+]
+\openout5 = `DMC.pyg'.
+
+ (./out/_minted-DMC/7BA606C95C65F7233266537056697FDB91F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex) [28
+
+]
+\openout5 = `DMC.pyg'.
+
+ (./out/_minted-DMC/58F8A2C9FD0B218DC1CC8993E926023691F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex) [29
+
+]
+\openout5 = `DMC.pyg'.
+
+ (./out/_minted-DMC/92F3764D2335C1608A32134D9A9E4FC891F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex) [30
+
+] [31
+
+] [32
+
+]
+\openout5 = `DMC.pyg'.
+
+ (./out/_minted-DMC/2096B0D080A00D86C4C6D050361E4D8A91F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
+\openout5 = `DMC.pyg'.
+
+ (./out/_minted-DMC/72266BF2829359005BB9A91D39AD109D91F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex) [33
+
+]
+File: images/dmc_zero_order_1_i2_blocking.png Graphic file (type bmp)
+<images/dmc_zero_order_1_i2_blocking.png>
+File: images/dmc_zero_order_05_hist.png Graphic file (type bmp)
+<images/dmc_zero_order_05_hist.png>
+ [34
+
+]
+\openout5 = `DMC.pyg'.
+
+ (./out/_minted-DMC/59C19BA79ACE4212FAE7C9BB533E140E91F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
+\openout5 = `DMC.pyg'.
+
+ (./out/_minted-DMC/3D1289C53C25EAC50662381C79CF51F991F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
+File: images/dmc_second_order.png Graphic file (type bmp)
+<images/dmc_second_order.png>
+ [35
+
+] [36
+
+]
+\openout5 = `DMC.pyg'.
+
+ (./out/_minted-DMC/93D6A9B9EC4EA1D69BEDCAA90C24ECF891F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
+Overfull \vbox (9.95119pt too high) detected at line 828
+ []
+
+[37
+
+]
+File: images/dmc_green_estimator.png Graphic file (type bmp)
+<images/dmc_green_estimator.png>
+ [38
+
+] (out/DMC.bbl) [39
+
+] [40
+
 
 ]
 \tf@nav=\write8
@@ -1297,17 +1362,17 @@ File: images/feynman2.png Graphic file (type bmp)
 
  (out/DMC.aux)
 Package rerunfilecheck Info: File `DMC.out' has not changed.
-(rerunfilecheck)             Checksum: 26B8CD8AA0CB8C34D7BDE337B153B90F;928.
+(rerunfilecheck)             Checksum: AB2D5AB5149D2D5533B4A6CF5FA3A737;1179.
 runsystem(del out\\DMC.pyg)...executed.
 
  ) 
 Here is how much of TeX's memory you used:
- 36320 strings out of 477863
- 788951 string characters out of 5827059
- 1874012 words of memory out of 5000000
- 55707 multiletter control sequences out of 15000+600000
- 515611 words of font info for 89 fonts, out of 8000000 for 9000
+ 36270 strings out of 477863
+ 792004 string characters out of 5827059
+ 1879012 words of memory out of 5000000
+ 55620 multiletter control sequences out of 15000+600000
+ 520297 words of font info for 111 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 128i,18n,134p,1962b,1007s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 128i,19n,134p,1962b,1008s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/DMC.xdv (26 pages, 587796 bytes).
+Output written on out/DMC.xdv (40 pages, 1284532 bytes).

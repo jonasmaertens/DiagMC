@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Warming} \PYG{n}{up}\PYG{p}{:} \PYG{l+m+mi}{10000} \PYG{n}{steps}
+\PYG{n}{Warmup} \PYG{n}{complete}\PYG{p}{:} \PYG{n}{τ} \PYG{n}{acc}\PYG{o}{.} \PYG{n}{ratio} \PYG{n}{of} \PYG{l+m+mf}{0.54}\PYG{p}{,} \PYG{n}{α} \PYG{n}{acc}\PYG{o}{.} \PYG{n}{ratio} \PYG{n}{of} \PYG{l+m+mf}{0.86}
+\PYG{n}{Sampling}\PYG{p}{:} \PYG{l+m+mi}{5000000} \PYG{n}{steps}
+\PYG{l+m+mi}{100}\PYG{o}{\PYGZpc{}|}\PYG{err}{██████████}\PYG{o}{|} \PYG{l+m+mi}{5000000}\PYG{o}{/}\PYG{l+m+mi}{5000000} \PYG{p}{[}\PYG{l+m+mi}{00}\PYG{p}{:}\PYG{l+m+mi}{25}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{00}\PYG{p}{:}\PYG{l+m+mi}{00}\PYG{p}{,} \PYG{l+m+mf}{194393.91}\PYG{n}{it}\PYG{o}{/}\PYG{n}{s}\PYG{p}{]}
+\PYG{n}{Sampling} \PYG{n}{complete}\PYG{p}{:} \PYG{n}{τ} \PYG{n}{acc}\PYG{o}{.} \PYG{n}{ratio} \PYG{n}{of} \PYG{l+m+mf}{0.54}\PYG{p}{,} \PYG{n}{α} \PYG{n}{acc}\PYG{o}{.} \PYG{n}{ratio} \PYG{n}{of} \PYG{l+m+mf}{0.85}
+\PYG{n}{I1}\PYG{p}{(}\PYG{n}{α}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{p}{)} \PYG{n}{mean}\PYG{p}{:} \PYG{l+m+mf}{2.85430}\PYG{p}{,} \PYG{n}{var}\PYG{p}{:} \PYG{l+m+mf}{9.53e\PYGZhy{}06}
+\PYG{n}{I1}\PYG{p}{(}\PYG{n}{α}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{mean}\PYG{p}{:} \PYG{l+m+mf}{0.96035}\PYG{p}{,} \PYG{n}{var}\PYG{p}{:} \PYG{l+m+mf}{2.40e\PYGZhy{}06}
+\PYG{n}{I2}\PYG{p}{(}\PYG{n}{α}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{p}{)} \PYG{n}{mean}\PYG{p}{:} \PYG{l+m+mf}{7.31758}\PYG{p}{,} \PYG{n}{var}\PYG{p}{:} \PYG{l+m+mf}{1.63e\PYGZhy{}04}
+\PYG{n}{I2}\PYG{p}{(}\PYG{n}{α}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{n}{mean}\PYG{p}{:} \PYG{l+m+mf}{1.75439}\PYG{p}{,} \PYG{n}{var}\PYG{p}{:} \PYG{l+m+mf}{2.34e\PYGZhy{}05}
+\end{Verbatim}

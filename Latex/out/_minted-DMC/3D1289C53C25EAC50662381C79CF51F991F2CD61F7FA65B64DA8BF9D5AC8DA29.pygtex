@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{Warming} \PYG{n}{up}\PYG{p}{:} \PYG{l+m+mi}{10000} \PYG{n}{steps}
+\PYG{n}{Warmup} \PYG{n}{complete}\PYG{p}{:} \PYG{n}{τ} \PYG{n}{acc}\PYG{o}{.} \PYG{n}{ratio} \PYG{n}{of} \PYG{l+m+mf}{0.76}\PYG{p}{,} \PYG{n}{β} \PYG{n}{acc}\PYG{o}{.} \PYG{n}{ratio} \PYG{n}{of} \PYG{l+m+mf}{0.22}
+\PYG{n}{Sampling}\PYG{p}{:} \PYG{l+m+mi}{3000000} \PYG{n}{steps}
+\PYG{l+m+mi}{100}\PYG{o}{\PYGZpc{}|}\PYG{err}{██████████}\PYG{o}{|} \PYG{l+m+mi}{3000000}\PYG{o}{/}\PYG{l+m+mi}{3000000} \PYG{p}{[}\PYG{l+m+mi}{00}\PYG{p}{:}\PYG{l+m+mi}{14}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{00}\PYG{p}{:}\PYG{l+m+mi}{00}\PYG{p}{,} \PYG{l+m+mf}{205720.34}\PYG{n}{it}\PYG{o}{/}\PYG{n}{s}\PYG{p}{]}
+\PYG{n}{Sampling} \PYG{n}{complete}\PYG{p}{:} \PYG{n}{τ} \PYG{n}{acc}\PYG{o}{.} \PYG{n}{ratio} \PYG{n}{of} \PYG{l+m+mf}{0.76}\PYG{p}{,} \PYG{n}{β} \PYG{n}{acc}\PYG{o}{.} \PYG{n}{ratio} \PYG{n}{of} \PYG{l+m+mf}{0.22}
+\end{Verbatim}

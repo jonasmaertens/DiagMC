@@ -17,8 +17,8 @@ dmc.print_I1(0.5)
 dmc.print_I1(1)
 dmc.print_I2(0.5)
 dmc.print_I2(1)
-dmc.plot_hist(0.5)
 dmc.plot_hist(1)
+dmc.plot_hist(0.5)
 
 
 # %%
@@ -64,8 +64,6 @@ dmc.plot_hist(0.5)
 dmc.plot_hist(1)
 # %%
 from DMC import DMC
-from matplotlib import pyplot as plt
-import numpy as np
 
 dmc = DMC(
     n_equ=int(1e4),

@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{add\PYGZus{}beta}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{)} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n+nb}{bool}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{beta} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{n\PYGZus{}beta\PYGZus{}rej} \PYG{o}{+=} \PYG{l+m+mi}{1}
+        \PYG{k}{return} \PYG{k+kc}{False}
+    \PYG{n}{prop\PYGZus{}tau2} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{uni}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tau\PYGZus{}min}\PYG{p}{,} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tau}\PYG{p}{)}
+    \PYG{n}{prop\PYGZus{}tau1} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{uni}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tau\PYGZus{}min}\PYG{p}{,} \PYG{n}{prop\PYGZus{}tau2}\PYG{p}{)}
+    \PYG{n}{prop\PYGZus{}beta} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mf}{0.25}\PYG{p}{,} \PYG{l+m+mf}{0.75}\PYG{p}{][}\PYG{n+nb}{int}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{rng}\PYG{o}{.}\PYG{n}{random}\PYG{p}{()} \PYG{o}{*} \PYG{l+m+mi}{2}\PYG{p}{)]}
+    \PYG{n}{M} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weight}\PYG{p}{(}\PYG{n}{beta}\PYG{o}{=}\PYG{n}{prop\PYGZus{}beta}\PYG{p}{,} \PYG{n}{tau1}\PYG{o}{=}\PYG{n}{prop\PYGZus{}tau1}\PYG{p}{,} \PYG{n}{tau2}\PYG{o}{=}\PYG{n}{prop\PYGZus{}tau2}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weight}\PYG{p}{()} \PYG{o}{/} \PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tau} \PYG{o}{\PYGZhy{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tau\PYGZus{}min}\PYG{p}{)} \PYG{o}{/} \PYG{p}{(}\PYG{n}{prop\PYGZus{}tau2} \PYG{o}{\PYGZhy{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tau\PYGZus{}min}\PYG{p}{)} \PYG{o}{*} \PYG{l+m+mf}{0.5}
+    \PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{M} \PYG{o}{\PYGZgt{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{rng}\PYG{o}{.}\PYG{n}{random}\PYG{p}{():}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{beta} \PYG{o}{=} \PYG{n}{prop\PYGZus{}beta}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tau1} \PYG{o}{=} \PYG{n}{prop\PYGZus{}tau1}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tau2} \PYG{o}{=} \PYG{n}{prop\PYGZus{}tau2}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{n\PYGZus{}beta\PYGZus{}acc} \PYG{o}{+=} \PYG{l+m+mi}{1}
+        \PYG{k}{return} \PYG{k+kc}{True}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{n\PYGZus{}beta\PYGZus{}rej} \PYG{o}{+=} \PYG{l+m+mi}{1}
+        \PYG{k}{return} \PYG{k+kc}{False}
+\end{Verbatim}

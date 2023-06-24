@@ -141,7 +141,7 @@ class DMC:
             tau1 = self.tau1
         if tau2 is None:
             tau2 = self.tau2
-        # If the diagram is of first order, the weight is simple
+        # If the diagram is of zero order, the weight is simple
         if beta == 0:
             return np.exp(-alpha * tau)
         # If the diagram is of second order, we need to include
@@ -238,14 +238,14 @@ class DMC:
 
     def remove_beta(self) -> bool:
         """
-        Proposes a new diagram by decreasing the order to first order.
+        Proposes a new diagram by decreasing the order to zero order.
         The update is accepted or rejected using the Metropolis algorithm.
 
         Returns:
         bool: True if the new beta value is accepted, False otherwise.
         """
 
-        # If current order is already first order, reject the update
+        # If current order is already zero order, reject the update
         if self.beta == 0:
             self.n_beta_rej += 1
             return False
@@ -360,6 +360,8 @@ class DMC:
             rows = np.where(self.samples[:, 1] == alpha)
             return self.samples[rows, 0][0]
         else:
+            if alpha  != self.alpha:
+                raise ValueError(f"No samples for alpha={alpha}")
             return self.samples
 
     def norm(self, alpha: float | None = None, analytical: bool = True) -> float:
@@ -440,7 +442,7 @@ class DMC:
 
     def print_I1(self, alpha: float | None = None) -> None:
         """
-        Prints the mean and variance of the integral \int_tau_min^tau_max tau * Q(tau, alpha, [V]) for a given alpha value
+        Prints the mean and variance of the integral \\int_tau_min^tau_max tau * Q(tau, alpha, [V]) for a given alpha value
 
         Parameters:
         alpha (float): The alpha value for which the mean and variance should be printed
@@ -457,7 +459,7 @@ class DMC:
 
     def print_I2(self, alpha: float | None = None) -> None:
         """
-        Prints the mean and variance of the integral \int_tau_min^tau_max tau^2 * Q(tau, alpha, [V]) for a given alpha value
+        Prints the mean and variance of the integral \\int_tau_min^tau_max tau^2 * Q(tau, alpha, [V]) for a given alpha value
 
         Parameters:
         alpha (float): The alpha value for which the mean and variance should be printed
@@ -504,7 +506,7 @@ class DMC:
         plt.legend()
         plt.show()
 
-    def blocking(self, samples, min_blocks: int = 32) -> tuple[float, float]:
+    def blocking(self, samples, min_blocks: int = 64) -> tuple[float, float]:
         """
         Performs blocking analysis on the given samples
 
@@ -580,7 +582,7 @@ class DMC:
         if alpha is None:
             alpha = self.alpha
         V = self.V
-        # For first order only the first term is needed
+        # For zero order only the first term is needed
         if not self.use_change_beta:
             return np.exp(-alpha * tau)
         return (
@@ -605,7 +607,7 @@ class DMC:
             / (0.75 - alpha) ** 2
         )
 
-    def green_estimator(self, tau0: float | np.ndarray, alpha: float | None = None) -> float | np.ndarray:
+    def green_estimator(self, tau0: float, alpha: float | None = None) -> float:
         """
         Returns the green function estimator for a given tau0
         Gamma is set to 2*min(tau0, 0.5, self.tau_max-tau0)
@@ -646,7 +648,7 @@ class DMC:
         )
         plt.plot(
             x,
-            self.green_estimator(x),
+            self.green_estimator(x), # type: ignore
             label=f"$Q_{{est}}(\\tau, \\alpha={alpha}{f',V={self.V}' if self.use_change_beta else ''})$",
             color="green",
         )

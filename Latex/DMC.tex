@@ -24,8 +24,6 @@
 \setlength{\abovecaptionskip}{2pt}
 \setlength{\belowcaptionskip}{0pt}
 
-\usepackage{tikz}
-\usetikzlibrary{tikzmark}
 
 \setbeamertemplate{footline}{
   \begin{beamercolorbox}{footer nav}
@@ -116,7 +114,7 @@ area_method(int(1e8), plot=True)
   \end{minted}
   \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{images/area_method_convergence.png}
+    \includegraphics[width=0.7\textwidth]{images/area_method_convergence2.png}
   \end{figure}
 \end{frame}
 
@@ -160,7 +158,7 @@ print(f"{std = }")
 \begin{frame}[containsverbatim]{Estimating PI: Area Method - Histogram}
   \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{images/area_method_histogram.png}
+    \includegraphics[width=0.8\textwidth]{images/area_method_histogram2.png}
   \end{figure}
 \end{frame}
 
@@ -212,7 +210,7 @@ mc_integrate(int(1e8), plot=True)
   \end{minted}
   \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{images/mc_integration_method_convergence.png}
+    \includegraphics[width=0.7\textwidth]{images/mc_integration_method_convergence2.png}
   \end{figure}
 \end{frame}
 
@@ -254,7 +252,7 @@ print(f"{std = }")
 \begin{frame}[containsverbatim]{Estimating PI: Area Method - Histogram}
   \begin{figure}
     \centering
-    \includegraphics[width=0.8\textwidth]{images/mc_integration_method_histogram.png}
+    \includegraphics[width=0.8\textwidth]{images/mc_integration_method_histogram2.png}
   \end{figure}
 \end{frame}
 
@@ -337,7 +335,7 @@ I2 std:   3.205e-04
           \column{0.65\linewidth}
           \begin{figure}
             \centering
-            \includegraphics[width=\linewidth]{images/cdf_inversion.png}
+            \includegraphics[width=\linewidth]{images/cdf_inversion2.png}
           \end{figure}
   \end{columns}
 \end{frame}
@@ -471,7 +469,7 @@ We are interested in the following function:
 \begin{equation*}
   Q(\tau, \alpha, V)=\exp (-\alpha \tau)+\sum_\beta \int_0^\tau d \tau_2 \int_0^{\tau_2} d \tau_1 e^{-\alpha \tau_1} V e^{-\beta\left(\tau_2-\tau_1\right)} V e^{-\alpha\left(\tau-\tau_2\right)}
 \end{equation*}
-which can be represented as first and second order \alert{Feynman Diagrams} of the following form:
+which can be represented as zero and second order \alert{Feynman Diagrams} of the following form:
 \begin{figure}
   \centering
   \includegraphics[height=24pt]{images/feynman1.png}
@@ -490,9 +488,353 @@ How can we sample from this function?
     \item Decreasing the order of the diagram
     \item (Change of $\alpha$)
   \end{itemize}
-We will now look at a class that implements these updates, the sampling, the 
-blocking analysis and the plotting.
+Mind the context factors of the updates when changing the order of the diagram\supercitepage[ch. 12.3.1.2]{fehske}:
+\begin{equation*}
+  A_{0 \rightarrow 2}=\min \left\{1, \frac{p_{\text {rem }}}{p_{\text {add }}} \frac{D_2^{\xi_2}\left(\tau, \alpha, V ; \tau_1, \tau_2, \beta\right) d \tau_1 d \tau_2}{D_0^{\xi_0}\left(\tau_0, \alpha_0\right) p_1\left(\tau_1\right) p_2\left(\tau_2\right) p_3(\beta) d \tau_1 d \tau_2}\right\}
+\end{equation*}
+We implement a Python class to sample, analyse and plot the results of the DMC algorithm.
+We will first take a look at some of the methods of this class, then have a look at the
+whole class \textbf{DMC.py} and finally look at the results.
 \end{frame}
+
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo Implementation - Initialization}
+  \begin{minted}
+    [
+      baselinestretch=1.2,
+      bgcolor=LightGray,
+      fontsize=\scriptsize,
+      linenos
+      ]
+      {python}
+def __init__(...) -> None:
+  # check parameters
+  if tau_max <= tau_min:
+      raise ValueError("tau_max must be greater than tau_min")
+  # And so on...
+  self.rng = np.random.default_rng() # set up random number generator
+  self.uni = lambda a, b: self.rng.random() * (b - a) + a
+  self.n_equ, n_sam, tau_min; tau_max, V, use_change_alpha = ... # Set up config parameters
+  self.tau, alpha, beta, tau1, tau2 = ... # Set up state variables
+  self.n_tau_acc, n_tau_rej, n_alpha_acc, n_alpha_rej... = 0 # Counters
+  self.samples = np.zeros((n_sam, 2) if use_change_alpha else n_sam) # Set up sample array
+  # Set up updater methods
+  self.updaters = [self.change_tau]
+  if use_change_alpha:
+      self.updaters.append(self.change_alpha)
+  # And so on...
+
+    \end{minted}
+  \end{frame}
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo Implementation - Weight Calculation}
+  \begin{minted}
+    [
+      baselinestretch=1.2,
+      bgcolor=LightGray,
+      fontsize=\scriptsize,
+      linenos
+      ]
+      {python}
+def weight(self, tau=None, alpha=None, beta=None, tau1=None, tau2=None) -> float:
+    if tau is None:
+        tau = self.tau
+    # Same for alpha, beta, tau1 and tau2
+    # ...
+    # If the diagram is of zero order, the weight is simple
+    if beta == 0:
+        return np.exp(-alpha * tau)
+    # If the diagram is of second order, we need to include
+    # two interaction vertices and the beta propagator
+    return (
+        np.exp(-alpha * tau1)
+        * self.V
+        * np.exp(-beta * (tau2 - tau1))
+        * self.V
+        * np.exp(-alpha * (tau - tau2))
+    )
+  \end{minted}
+  As we will see, this method is used in every update to calculate the acceptance ratio.
+    \end{frame}
+
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo Implementation - Change-$\tau$\&$\alpha$}
+  \begin{minted}
+    [
+      baselinestretch=1.2,
+      bgcolor=LightGray,
+      fontsize=\scriptsize,
+      linenos
+      ]
+      {python}
+def change_tau(self) -> bool:
+    prop_tau = self.uni(self.tau2, self.tau_max)
+    M = self.weight(tau=prop_tau) / self.weight()
+    if M > self.rng.random():
+        self.tau = prop_tau
+        self.n_tau_acc += 1
+        return True
+    else:
+        self.n_tau_rej += 1
+        return False
+
+def change_alpha(self) -> bool:
+    prop_alpha = [0.5, 1][int(self.rng.random() * 2)]
+    M = self.weight(alpha=prop_alpha) / self.weight()
+    if M > self.rng.random():
+        self.alpha = prop_alpha
+        self.n_alpha_acc += 1
+        return True
+    else:
+        self.n_alpha_rej += 1
+        return False
+  \end{minted}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo Implementation - Change-Order}
+  \begin{minted}
+    [
+      baselinestretch=1.2,
+      bgcolor=LightGray,
+      fontsize=\scriptsize,
+      linenos
+      ]
+      {python}
+def add_beta(self) -> bool:
+    if self.beta != 0:
+        self.n_beta_rej += 1
+        return False
+    prop_tau2 = self.uni(self.tau_min, self.tau)
+    prop_tau1 = self.uni(self.tau_min, prop_tau2)
+    prop_beta = [0.25, 0.75][int(self.rng.random() * 2)]
+    M = self.weight(beta=prop_beta, tau1=prop_tau1, tau2=prop_tau2) / (
+        self.weight() / (self.tau - self.tau_min) / (prop_tau2 - self.tau_min) * 0.5
+    )
+    if M > self.rng.random():
+        self.beta = prop_beta
+        self.tau1 = prop_tau1
+        self.tau2 = prop_tau2
+        self.n_beta_acc += 1
+        return True
+    else:
+        self.n_beta_rej += 1
+        return False
+  \end{minted}
+  The remove-$\beta$ update works the same way. The Metropolis ratio is the
+  inverse of the add-$\beta$ ratio.
+\end{frame}
+
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo Implementation - Updating, Sampling}
+  \begin{minted}
+    [
+      baselinestretch=1.2,
+      bgcolor=LightGray,
+      fontsize=\scriptsize,
+      linenos
+      ]
+      {python}
+def update(self) -> bool:
+    updater = self.updaters[int(self.rng.random() * len(self.updaters))] 
+    return updater()
+
+def sample(self) -> None:
+    for i in trange(self.n_sam):
+        self.update()
+        if self.use_change_alpha:
+            self.samples[i, 0] = self.tau
+            self.samples[i, 1] = self.alpha
+            if self.beta == 0:
+                self.n_zero_order[self.alpha] = self.n_zero_order.get(self.alpha, 0) + 1  
+        else:
+            self.samples[i] = self.tau
+            if self.beta == 0:
+                self.n_zero_order += 1  
+    # Logging ...
+  \end{minted}
+  Equilibration works the same way, but without sampling.
+\end{frame}
+
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo Implementation - Normalization}
+The normalization constant could still be calculated analytically, but normally this 
+is not possible. \\
+\alert{Solution}: Use normalization constant $C_0$ of zero order diagram and 
+number of zero order diagrams $N_0$ to estimate $C$ \supercitepage[ch. 3.3]{ragni}:
+\begin{equation*}
+  C\approx C_0\frac{N}{N_0}
+\end{equation*}
+This is implemented as an alternative to the analytical normalization. Furthermore,
+helper methods for plotting and analysis are implemented.\\
+\\
+Let's take a look at the whole class \textbf{DMC.py}, before we come back to the results.
+
+
+\end{frame}
+
+\begin{frame}[standout]
+  Switching to VS Code
+\end{frame}
+
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo - Results}
+  \begin{columns}
+    \column{0.33\linewidth}
+      \begin{minted}
+        [
+          baselinestretch=1.2,
+          bgcolor=LightGray,
+          fontsize=\scriptsize,
+          linenos
+          ]
+          {python}
+from DMC import DMC
+dmc = DMC(
+    n_equ=int(1e4),
+    n_sam=int(5e6),
+    tau_min=0,
+    tau_max=5,
+    alpha_0=1,
+    tau_0=1,
+    use_change_alpha=True,
+    use_change_beta=False,
+    use_analytical=True,
+)
+dmc.equilibrate()
+dmc.sample()
+dmc.print_I1(0.5)
+dmc.print_I1(1)
+dmc.print_I2(0.5)
+dmc.print_I2(1)
+dmc.plot_hist(1)
+dmc.plot_hist(0.5)
+      \end{minted}
+    \column{0.67\linewidth}
+    \begin{minted}
+      [
+        baselinestretch=1.2,
+        bgcolor=LightGray,
+        fontsize=\scriptsize,
+        linenos
+        ]
+        {python}
+Warming up: 10000 steps
+Warmup complete: τ acc. ratio of 0.54, α acc. ratio of 0.86
+Sampling: 5000000 steps
+100%|██████████| 5000000/5000000 [00:25<00:00, 194393.91it/s]
+Sampling complete: τ acc. ratio of 0.54, α acc. ratio of 0.85
+I1(α=0.5) mean: 2.85430, var: 9.53e-06
+I1(α=1) mean: 0.96035, var: 2.40e-06
+I2(α=0.5) mean: 7.31758, var: 1.63e-04
+I2(α=1) mean: 1.75439, var: 2.34e-05
+  \end{minted}
+Plots are shown on the next slide.
+  \end{columns} 
+\end{frame}
+
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo - Results}
+  \begin{columns}
+    \column{0.5\linewidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\linewidth]{images/dmc_zero_order_1_i2_blocking.png}
+      \caption*{One of the blocking analysis plots}
+    \end{figure}
+    
+    \column{0.5\linewidth}
+    \begin{figure}
+      \centering
+      \includegraphics[width=\linewidth]{images/dmc_zero_order_05_hist.png}
+      \caption*{Histogram for $\alpha=0.5$}
+    \end{figure}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo - Results}
+  \begin{columns}
+    \column{0.33\linewidth}
+      \begin{minted}
+        [
+          baselinestretch=1.2,
+          bgcolor=LightGray,
+          fontsize=\scriptsize,
+          linenos
+          ]
+          {python}
+from DMC import DMC
+
+dmc = DMC(
+    n_equ=int(1e4),
+    n_sam=int(3e6),
+    tau_min=0,
+    tau_max=5,
+    alpha_0=0.4,
+    tau_0=1,
+    V=0.5,
+    use_change_alpha=False,
+    use_change_beta=True,
+    use_analytical=True,
+)
+dmc.equilibrate()
+dmc.sample()
+dmc.plot_hist()
+      \end{minted}
+    \column{0.67\linewidth}
+    \begin{minted}
+      [
+        baselinestretch=1.2,
+        bgcolor=LightGray,
+        fontsize=\scriptsize,
+        linenos
+        ]
+        {python}
+Warming up: 10000 steps
+Warmup complete: τ acc. ratio of 0.76, β acc. ratio of 0.22
+Sampling: 3000000 steps
+100%|██████████| 3000000/3000000 [00:14<00:00, 205720.34it/s]
+Sampling complete: τ acc. ratio of 0.76, β acc. ratio of 0.22
+  \end{minted}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\linewidth]{images/dmc_second_order.png}
+\end{figure}
+  \end{columns} 
+\end{frame}
+
+\section{Task 6: DMC - Green Function Estimator}
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo - Greens Function Estimator}
+  An exact MC estimator for the Greens function can be derived \cite[ch. III.C]{mishchenko}:
+  \begin{align*}
+    \left\langle q_{\tau_0}\right\rangle_{M C}&=C * Q\left(\tau_0, \alpha, V\right)\\
+    q_{\tau_0}(\nu, \tau)&= \begin{cases}q(\nu) \mathcal{D}_\nu\left(\tau_0\right) / \mathcal{D}_\nu(\tau)=\lvert \Gamma_0\rvert^{-1} e^{-\alpha\left(\tau_0-\tau\right)}, & \text { if } \tau \in \Gamma_0 \text { and } \mathcal{D}_\nu(\tau) \neq 0 \\ 0, & \text { otherwise. }\end{cases}
+    \end{align*}
+    Where i choose $\Gamma_0 = [\tau_0-a, \tau_0+a]$ with $a=\min(0.2,\tau_0,\tau_{\max}-\tau_0)$ \\
+    This eliminates the discretization error of the histogram method.\\
+    \begin{minted}
+      [
+        baselinestretch=1.2,
+        bgcolor=LightGray,
+        fontsize=\scriptsize,
+        linenos
+        ]
+        {python}
+def green_estimator(self, tau0: float, alpha: float | None = None) -> float:
+    if alpha is None:
+        alpha = self.alpha
+    tau = self.get_samples(alpha)
+    diff = np.subtract.outer(tau0, tau)
+    tau0_stacked = np.repeat(tau0, tau.size).reshape(diff.shape)
+    mins = np.minimum(np.minimum(tau0_stacked, self.tau_max - tau0_stacked), 0.2)
+    res = np.exp(-alpha * (diff)) / (2 * mins)
+    res[np.abs(diff) > mins] = 0
+    meaned = np.mean(res, axis=1) *self.norm(alpha, analytical=self.use_analytical)
+    return meaned
+    \end{minted}
+\end{frame} 
+
+\begin{frame}[containsverbatim]{Diagrammatic Monte Carlo - Greens Function Estimator - Results}
+  Plot of the Greens function estimator for $n=3 \cdot 10^6$ samples:
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.65\linewidth]{images/dmc_green_estimator.png}
+  \end{figure}
+\end{frame}
+
 
 
 \renewcommand\appendixname{Appendix}

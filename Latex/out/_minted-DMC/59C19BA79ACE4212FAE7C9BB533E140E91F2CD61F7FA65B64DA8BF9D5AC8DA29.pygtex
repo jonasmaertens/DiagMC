@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{from} \PYG{n+nn}{DMC} \PYG{k+kn}{import} \PYG{n}{DMC}
+
+\PYG{n}{dmc} \PYG{o}{=} \PYG{n}{DMC}\PYG{p}{(}
+    \PYG{n}{n\PYGZus{}equ}\PYG{o}{=}\PYG{n+nb}{int}\PYG{p}{(}\PYG{l+m+mf}{1e4}\PYG{p}{),}
+    \PYG{n}{n\PYGZus{}sam}\PYG{o}{=}\PYG{n+nb}{int}\PYG{p}{(}\PYG{l+m+mf}{3e6}\PYG{p}{),}
+    \PYG{n}{tau\PYGZus{}min}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,}
+    \PYG{n}{tau\PYGZus{}max}\PYG{o}{=}\PYG{l+m+mi}{5}\PYG{p}{,}
+    \PYG{n}{alpha\PYGZus{}0}\PYG{o}{=}\PYG{l+m+mf}{0.4}\PYG{p}{,}
+    \PYG{n}{tau\PYGZus{}0}\PYG{o}{=}\PYG{l+m+mi}{1}\PYG{p}{,}
+    \PYG{n}{V}\PYG{o}{=}\PYG{l+m+mf}{0.5}\PYG{p}{,}
+    \PYG{n}{use\PYGZus{}change\PYGZus{}alpha}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{,}
+    \PYG{n}{use\PYGZus{}change\PYGZus{}beta}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,}
+    \PYG{n}{use\PYGZus{}analytical}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{,}
+\PYG{p}{)}
+\PYG{n}{dmc}\PYG{o}{.}\PYG{n}{equilibrate}\PYG{p}{()}
+\PYG{n}{dmc}\PYG{o}{.}\PYG{n}{sample}\PYG{p}{()}
+\PYG{n}{dmc}\PYG{o}{.}\PYG{n}{plot\PYGZus{}hist}\PYG{p}{()}
+\end{Verbatim}
