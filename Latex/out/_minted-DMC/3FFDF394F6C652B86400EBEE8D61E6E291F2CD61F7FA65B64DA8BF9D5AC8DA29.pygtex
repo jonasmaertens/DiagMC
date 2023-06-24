@@ -1,0 +1,25 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{alpha} \PYG{o}{=} \PYG{l+m+mi}{1}
+\PYG{n}{x\PYGZus{}max} \PYG{o}{=} \PYG{l+m+mi}{5}
+\PYG{n}{n} \PYG{o}{=} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+m+mf}{1e8}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{F}\PYG{p}{(}\PYG{n}{x}\PYG{p}{):}
+    \PYG{k}{return} \PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{alpha}\PYG{o}{*}\PYG{n}{x}\PYG{p}{))}\PYG{o}{/}\PYG{n}{alpha}
+
+\PYG{n}{F\PYGZus{}max} \PYG{o}{=} \PYG{n}{F}\PYG{p}{(}\PYG{n}{x\PYGZus{}max}\PYG{p}{)}
+
+\PYG{k}{def} \PYG{n+nf}{F\PYGZus{}inv}\PYG{p}{(}\PYG{n}{r}\PYG{p}{):}
+    \PYG{k}{return} \PYG{o}{\PYGZhy{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{log}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{alpha}\PYG{o}{*}\PYG{n}{r}\PYG{o}{*}\PYG{n}{F\PYGZus{}max}\PYG{p}{)}\PYG{o}{/}\PYG{n}{alpha}
+
+\PYG{c+c1}{\PYGZsh{}generate all samples at once using numpy}
+\PYG{n}{r} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}
+\PYG{n}{x} \PYG{o}{=} \PYG{n}{F\PYGZus{}inv}\PYG{p}{(}\PYG{n}{r}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} Do the plotting here}
+\PYG{c+c1}{\PYGZsh{} Use np.histogram or plt.hist}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}I1 exact: 1\PYGZhy{}6*exp(\PYGZhy{}5) = 0.9595723\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}I1 mean: }\PYG{l+s+si}{\PYGZob{}}\PYG{+w}{ }\PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{n}{F\PYGZus{}max}\PYG{l+s+si}{:}\PYG{l+s+s2}{.6f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}I1 std: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{std}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{o}{*}\PYG{n}{F\PYGZus{}max}\PYG{o}{/}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{l+s+si}{:}\PYG{l+s+s2}{.3e}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}I2 exact: 2\PYGZhy{}37*exp(\PYGZhy{}5) = 1.750696\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}I2 mean: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{x}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{*}\PYG{n}{F\PYGZus{}max}\PYG{l+s+si}{:}\PYG{l+s+s2}{.6f}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}I2 std: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{std}\PYG{p}{(}\PYG{n}{x}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{*}\PYG{n}{F\PYGZus{}max}\PYG{o}{/}\PYG{n}{np}\PYG{o}{.}\PYG{n}{sqrt}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}\PYG{l+s+si}{:}\PYG{l+s+s2}{.3e}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+\end{Verbatim}

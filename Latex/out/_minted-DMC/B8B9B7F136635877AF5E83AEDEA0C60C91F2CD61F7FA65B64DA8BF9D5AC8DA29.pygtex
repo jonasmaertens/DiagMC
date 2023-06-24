@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{blocking}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{samples}\PYG{p}{,} \PYG{n}{min\PYGZus{}blocks}\PYG{p}{:} \PYG{n+nb}{int} \PYG{o}{=} \PYG{l+m+mi}{32}\PYG{p}{)} \PYG{o}{\PYGZhy{}\PYGZgt{}} \PYG{n+nb}{tuple}\PYG{p}{[}\PYG{n+nb}{float}\PYG{p}{,} \PYG{n+nb}{float}\PYG{p}{]:}
+    \PYG{n}{means} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{n}{samples}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Copy the samples to avoid changing the original array}
+    \PYG{n}{mean} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{means}\PYG{p}{)}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{n+nb}{float}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Calculate the mean of the samples}
+    \PYG{n}{n} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{log2}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{means}\PYG{p}{)} \PYG{o}{//} \PYG{n}{min\PYGZus{}blocks}\PYG{p}{)}\PYG{o}{.}\PYG{n}{astype}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Calculate the iteration steps}
+    \PYG{n}{block\PYGZus{}sizes} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{logspace}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{n}\PYG{p}{,} \PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{base}\PYG{o}{=}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Minumum block size is 1, max is 2**n}
+    \PYG{n+nb}{vars} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{dtype}\PYG{o}{=}\PYG{n+nb}{float}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Initialize the array for the variances}
+    \PYG{n+nb}{vars}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1} \PYG{o}{/} \PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{means}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{means}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{mean}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Naive variance}
+    \PYG{n}{Rx} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{c+c1}{\PYGZsh{} Initialize Rx array}
+    \PYG{n}{Rx}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{=} \PYG{l+m+mi}{1}
+    \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,} \PYG{n}{n} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{):} \PYG{c+c1}{\PYGZsh{} Perform blocking}
+        \PYG{k}{if} \PYG{n}{means}\PYG{o}{.}\PYG{n}{size} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{2} \PYG{o}{!=} \PYG{l+m+mi}{0}\PYG{p}{:} \PYG{c+c1}{\PYGZsh{} Make sure the number of blocks is even in order to divide by 2}
+            \PYG{n}{means} \PYG{o}{=} \PYG{n}{means}\PYG{p}{[:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}
+        \PYG{n}{means} \PYG{o}{=} \PYG{l+m+mf}{0.5} \PYG{o}{*} \PYG{p}{(}\PYG{n}{means}\PYG{p}{[::}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{o}{+} \PYG{n}{means}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{::}\PYG{l+m+mi}{2}\PYG{p}{])} \PYG{c+c1}{\PYGZsh{} Double the block size}
+        \PYG{n}{n\PYGZus{}blocks} \PYG{o}{=} \PYG{n}{means}\PYG{o}{.}\PYG{n}{size}
+        \PYG{n}{varXBlock} \PYG{o}{=} \PYG{n}{n\PYGZus{}blocks} \PYG{o}{/} \PYG{p}{(}\PYG{n}{n\PYGZus{}blocks} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{mean}\PYG{p}{(}\PYG{n}{means}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n}{mean}\PYG{o}{**}\PYG{l+m+mi}{2}\PYG{p}{)}
+        \PYG{n+nb}{vars}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{varXBlock} \PYG{o}{/} \PYG{n}{n\PYGZus{}blocks} \PYG{c+c1}{\PYGZsh{} Calculate the variance}
+        \PYG{n}{Rx}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{block\PYGZus{}sizes}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{*} \PYG{n}{varXBlock} \PYG{o}{/} \PYG{n+nb}{vars}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{o}{/} \PYG{n}{samples}\PYG{o}{.}\PYG{n}{size}
+    \PYG{n}{plateau\PYGZus{}index} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{argmin}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{Rx}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:]} \PYG{o}{\PYGZhy{}} \PYG{n}{Rx}\PYG{p}{[:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{])[}\PYG{l+m+mi}{3}\PYG{p}{:])} \PYG{o}{+} \PYG{l+m+mi}{4} \PYG{c+c1}{\PYGZsh{} Find plateau in Rx}
+    \PYG{c+c1}{\PYGZsh{} Plotting...}
+    \PYG{k}{return} \PYG{n}{mean}\PYG{p}{,} \PYG{n+nb}{vars}\PYG{p}{[}\PYG{n}{plateau\PYGZus{}index}\PYG{p}{]}
+\end{Verbatim}

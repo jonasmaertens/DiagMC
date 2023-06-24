@@ -1,0 +1,21 @@
+\begin{thebibliography}{GKW16}
+
+\bibitem[{Ces}22]{tasks}
+{Cesare Franchini}.
+\newblock Basic diagrammatic monte carlo - exercise sheet.
+\newblock
+  \url{https://virtuale.unibo.it/pluginfile.php/1542120/mod_resource/content/1/project_basic_dmc.pdf},
+  2022.
+\newblock [Online, private; accessed June 24, 2023].
+
+\bibitem[FSW08]{fehske}
+H.~Fehske, R.~Schneider, and A.~Wei{\ss}e, editors.
+\newblock {\em Computational Many-Particle Physics}.
+\newblock Springer Berlin Heidelberg, 2008.
+
+\bibitem[GKW16]{gubernatis}
+James Gubernatis, Naoki Kawashima, and Philipp Werner.
+\newblock {\em Quantum Monte Carlo Methods: Algorithms for Lattice Models}.
+\newblock Cambridge University Press, 2016.
+
+\end{thebibliography}

@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}equilibration}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n\PYGZus{}equ}\PYG{p}{):}
+    \PYG{n}{prop} \PYG{o}{=} \PYG{n}{uni}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{acc\PYGZus{}ratio}\PYG{p}{(}\PYG{n}{curr}\PYG{p}{,} \PYG{n}{prop}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{():}
+        \PYG{n}{curr} \PYG{o}{=} \PYG{n}{prop}
+        \PYG{n}{n\PYGZus{}acc} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n}{n\PYGZus{}rej} \PYG{o}{+=} \PYG{l+m+mi}{1}
+
+\PYG{c+c1}{\PYGZsh{}sampling}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n\PYGZus{}sam}\PYG{p}{):}
+    \PYG{n}{prop} \PYG{o}{=} \PYG{n}{uni}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{l+m+mi}{5}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n}{acc\PYGZus{}ratio}\PYG{p}{(}\PYG{n}{curr}\PYG{p}{,} \PYG{n}{prop}\PYG{p}{)} \PYG{o}{\PYGZgt{}} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{():}
+        \PYG{n}{curr} \PYG{o}{=} \PYG{n}{prop}
+        \PYG{n}{n\PYGZus{}acc} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n}{n\PYGZus{}rej} \PYG{o}{+=} \PYG{l+m+mi}{1}
+    \PYG{n}{samples}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{o}{=} \PYG{n}{curr}
+
+\PYG{c+c1}{\PYGZsh{} Plotting, printing, etc.}
+\PYG{c+c1}{\PYGZsh{} ...}
+\end{Verbatim}
