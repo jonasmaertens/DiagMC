@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.28)  24 JUN 2023 18:12
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.28)  24 JUN 2023 18:18
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1157,7 +1157,7 @@ File: images/area_method_visualization.png Graphic file (type bmp)
 File: images/area_method_convergence2.png Graphic file (type bmp)
 <images/area_method_convergence2.png>
 
-Overfull \vbox (19.54875pt too high) detected at line 119
+Overfull \vbox (4.61131pt too high) detected at line 119
  []
 
 [6
@@ -1182,8 +1182,8 @@ Overfull \vbox (14.21301pt too high) detected at line 163
 ]
 \openout5 = `DMC.pyg'.
 
- (./out/_minted-DMC/26A5058E807F9A367BB580E41C67DC4F91F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
-Overfull \vbox (23.54129pt too high) detected at line 198
+ (./out/_minted-DMC/661897FFF5E5278A46509E3153381E8A91F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
+Overfull \vbox (12.14133pt too high) detected at line 197
  []
 
 [9
@@ -1195,7 +1195,7 @@ Overfull \vbox (23.54129pt too high) detected at line 198
 File: images/mc_integration_method_convergence2.png Graphic file (type bmp)
 <images/mc_integration_method_convergence2.png>
 
-Overfull \vbox (19.54875pt too high) detected at line 215
+Overfull \vbox (4.61131pt too high) detected at line 214
  []
 
 [10
@@ -1212,7 +1212,7 @@ Overfull \vbox (19.54875pt too high) detected at line 215
 File: images/mc_integration_method_histogram2.png Graphic file (type bmp)
 <images/mc_integration_method_histogram2.png>
 
-Overfull \vbox (14.21301pt too high) detected at line 257
+Overfull \vbox (14.21301pt too high) detected at line 256
  []
 
 [12
@@ -1225,7 +1225,7 @@ Overfull \vbox (14.21301pt too high) detected at line 257
 \openout5 = `DMC.pyg'.
 
  (./out/_minted-DMC/3FFDF394F6C652B86400EBEE8D61E6E291F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
-Overfull \vbox (5.91048pt too high) detected at line 314
+Overfull \vbox (5.91048pt too high) detected at line 313
  []
 
 [15
@@ -1246,7 +1246,7 @@ File: images/cdf_inversion2.png Graphic file (type bmp)
 \openout5 = `DMC.pyg'.
 
  (./out/_minted-DMC/8EDA72165A2051E3465ACDCB7257800891F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
-Overfull \vbox (5.91048pt too high) detected at line 390
+Overfull \vbox (5.91048pt too high) detected at line 389
  []
 
 [19
@@ -1335,7 +1335,7 @@ File: images/dmc_second_order.png Graphic file (type bmp)
 \openout5 = `DMC.pyg'.
 
  (./out/_minted-DMC/93D6A9B9EC4EA1D69BEDCAA90C24ECF891F2CD61F7FA65B64DA8BF9D5AC8DA29.pygtex)
-Overfull \vbox (9.95119pt too high) detected at line 828
+Overfull \vbox (9.95119pt too high) detected at line 827
  []
 
 [37
@@ -1369,10 +1369,10 @@ runsystem(del out\\DMC.pyg)...executed.
 Here is how much of TeX's memory you used:
  36270 strings out of 477863
  792004 string characters out of 5827059
- 1879012 words of memory out of 5000000
+ 1878012 words of memory out of 5000000
  55620 multiletter control sequences out of 15000+600000
  520297 words of font info for 111 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  128i,19n,134p,1962b,1008s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on out/DMC.xdv (40 pages, 1284532 bytes).
+Output written on out/DMC.xdv (40 pages, 1284384 bytes).

@@ -114,7 +114,7 @@ area_method(int(1e8), plot=True)
   \end{minted}
   \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{images/area_method_convergence2.png}
+    \includegraphics[width=0.65\textwidth]{images/area_method_convergence2.png}
   \end{figure}
 \end{frame}
 
@@ -191,7 +191,6 @@ def mc_integrate(n, plot=False):
                     estimates_area = np.append(estimates_area, 4 * sum / (i+1))
     if plot:
         # Do the plotting here
-        # ...
     return sum / n * 4
   \end{minted}
   
@@ -210,7 +209,7 @@ mc_integrate(int(1e8), plot=True)
   \end{minted}
   \begin{figure}
     \centering
-    \includegraphics[width=0.7\textwidth]{images/mc_integration_method_convergence2.png}
+    \includegraphics[width=0.65\textwidth]{images/mc_integration_method_convergence2.png}
   \end{figure}
 \end{frame}
 
