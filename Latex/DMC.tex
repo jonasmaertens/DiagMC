@@ -184,11 +184,10 @@ def mc_integrate(n, plot=False):
     estimates_area = np.array([], dtype=np.float32)
     for i in range(n):
         x = np.random.random()
-            sum += f(x) / p(x)
-            if plot:
-                if i % (int(n / 100000)) == 0 and i > 1000000:
-                    estimates_n = np.append(estimates_n, i+1)
-                    estimates_area = np.append(estimates_area, 4 * sum / (i+1))
+        sum += f(x) / p(x)
+        if plot and i % (int(n / 100000)) == 0 and i > 1000000:
+            estimates_n = np.append(estimates_n, i+1)
+            estimates_area = np.append(estimates_area, 4 * sum / (i+1))
     if plot:
         # Do the plotting here
     return sum / n * 4
@@ -346,7 +345,7 @@ Basic principle behind DMC is Markov Chain Monte Carlo (MCMC). We again sample f
 a distribution $f$, this time using the \alert{Metropolis-Hastings algorithm}:
 \begin{itemize}
   \item Propose a random configuration $x^\prime$ from a proposal distribution $p$
-  \item Accept the configuration with probability $A(x, x')=\min \left(1, \frac{f\left(x^{\prime}\right) p\left(x\right)}{f\left(x\right) p\left(x^{\prime}\right)}\right)$
+  \item Accept the configuration with probability $A(x, x')=\min \left(1, \frac{f(x^{\prime}) p\left(x\right)}{f\left(x\right) p\left(x^{\prime}\right)}\right)$
   \item $p$ can be optimized to increase acceptance rate (similarly to CDF inversion, see also \cite[Chapter 12.3.1.1]{fehske})
   \item This \alert{Markov Chain} converges to desired distribution $f$, guarantees ergodicity
   \item Samples now \alert{correlated} $\rightarrow$ \alert{Blocking Analysis} to estimate $\sigma$

@@ -11,11 +11,10 @@
     \PYG{n}{estimates\PYGZus{}area} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{([],} \PYG{n}{dtype}\PYG{o}{=}\PYG{n}{np}\PYG{o}{.}\PYG{n}{float32}\PYG{p}{)}
     \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n}{n}\PYG{p}{):}
         \PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{()}
-            \PYG{n+nb}{sum} \PYG{o}{+=} \PYG{n}{f}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{/} \PYG{n}{p}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
-            \PYG{k}{if} \PYG{n}{plot}\PYG{p}{:}
-                \PYG{k}{if} \PYG{n}{i} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{n} \PYG{o}{/} \PYG{l+m+mi}{100000}\PYG{p}{))} \PYG{o}{==} \PYG{l+m+mi}{0} \PYG{o+ow}{and} \PYG{n}{i} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1000000}\PYG{p}{:}
-                    \PYG{n}{estimates\PYGZus{}n} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{estimates\PYGZus{}n}\PYG{p}{,} \PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}
-                    \PYG{n}{estimates\PYGZus{}area} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{estimates\PYGZus{}area}\PYG{p}{,} \PYG{l+m+mi}{4} \PYG{o}{*} \PYG{n+nb}{sum} \PYG{o}{/} \PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}
+        \PYG{n+nb}{sum} \PYG{o}{+=} \PYG{n}{f}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{o}{/} \PYG{n}{p}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
+        \PYG{k}{if} \PYG{n}{plot} \PYG{o+ow}{and} \PYG{n}{i} \PYG{o}{\PYGZpc{}} \PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{(}\PYG{n}{n} \PYG{o}{/} \PYG{l+m+mi}{100000}\PYG{p}{))} \PYG{o}{==} \PYG{l+m+mi}{0} \PYG{o+ow}{and} \PYG{n}{i} \PYG{o}{\PYGZgt{}} \PYG{l+m+mi}{1000000}\PYG{p}{:}
+            \PYG{n}{estimates\PYGZus{}n} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{estimates\PYGZus{}n}\PYG{p}{,} \PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}
+            \PYG{n}{estimates\PYGZus{}area} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{estimates\PYGZus{}area}\PYG{p}{,} \PYG{l+m+mi}{4} \PYG{o}{*} \PYG{n+nb}{sum} \PYG{o}{/} \PYG{p}{(}\PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{))}
     \PYG{k}{if} \PYG{n}{plot}\PYG{p}{:}
         \PYG{c+c1}{\PYGZsh{} Do the plotting here}
     \PYG{k}{return} \PYG{n+nb}{sum} \PYG{o}{/} \PYG{n}{n} \PYG{o}{*} \PYG{l+m+mi}{4}
