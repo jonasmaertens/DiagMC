@@ -450,7 +450,7 @@ def blocking(self, samples, min_blocks: int = 32) -> tuple[float, float]:
     # Plotting...
     return mean, vars[plateau_index]
       \end{minted}
-      For the maths behind the blocking analysis, see \cite[Chapter 3.4]{gubernatis}.
+      For the math behind the blocking analysis, see \cite[Chapter 3.4]{gubernatis}.
 \end{frame}
 
 \begin{frame}[containsverbatim]{Markov Chain Monte Carlo - Results}
@@ -801,7 +801,7 @@ Sampling complete: τ acc. ratio of 0.76, β acc. ratio of 0.22
     \left\langle q_{\tau_0}\right\rangle_{M C}&=C * Q\left(\tau_0, \alpha, V\right)\\
     q_{\tau_0}(\nu, \tau)&= \begin{cases}q(\nu) \mathcal{D}_\nu\left(\tau_0\right) / \mathcal{D}_\nu(\tau)=\lvert \Gamma_0\rvert^{-1} e^{-\alpha\left(\tau_0-\tau\right)}, & \text { if } \tau \in \Gamma_0 \text { and } \mathcal{D}_\nu(\tau) \neq 0 \\ 0, & \text { otherwise. }\end{cases}
     \end{align*}
-    Where i choose $\Gamma_0 = [\tau_0-a, \tau_0+a]$ with $a=\min(0.2,\tau_0,\tau_{\max}-\tau_0)$ \\
+    Where I choose $\Gamma_0 = [\tau_0-a, \tau_0+a]$ with $a=\min(0.2,\tau_0,\tau_{\max}-\tau_0)$ \\
     This eliminates the discretization error of the histogram method.\\
     \begin{minted}
       [
