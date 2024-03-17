@@ -1,5 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{def} \PYG{n+nf}{mc\PYGZus{}integrate\PYGZus{}fast}\PYG{p}{(}\PYG{n}{n}\PYG{p}{):}
-    \PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{random}\PYG{o}{.}\PYG{n}{random}\PYG{p}{(}\PYG{n}{n}\PYG{p}{)}
-    \PYG{k}{return} \PYG{n}{np}\PYG{o}{.}\PYG{n}{sum}\PYG{p}{(}\PYG{n}{f}\PYG{p}{(}\PYG{n}{x}\PYG{p}{))} \PYG{o}{/} \PYG{n}{n} \PYG{o}{*} \PYG{l+m+mi}{4}
-\end{Verbatim}
